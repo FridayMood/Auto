@@ -15,7 +15,7 @@ public class LoginTest {
  ChromeOptions chromeOptions = new ChromeOptions();
  chromeOptions.addArguments ("--incognito");
             chromeOptions.addArguments ("--remote-allow-origins=*");
-            WebDriver driver = new ChromeDriver(chromeOptions);
+            driver = new ChromeDriver(chromeOptions);
             driver.get("https://www.sharelane.com/cgi-bin/register.py");
             driver.findElement(By.xpath("//input[@name = 'zip_code']")).sendKeys("12345");
             driver.findElement(By.xpath("//input[@value = 'Continue']")).click();

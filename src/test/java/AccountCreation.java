@@ -4,10 +4,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class AccountCreation {
     private WebDriver driver;
+
+
 
     @Test
     public void accountCreationTest() {
@@ -15,7 +18,7 @@ public class AccountCreation {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--incognito");
         chromeOptions.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver(chromeOptions);
         driver.get("https://www.sharelane.com/cgi-bin/register.py");
         driver.findElement(By.xpath("//input[@name = 'zip_code']")).sendKeys("12345");
         driver.findElement(By.xpath("//input[@value = 'Continue']")).click();
