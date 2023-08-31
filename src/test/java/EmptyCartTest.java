@@ -15,16 +15,16 @@ public class EmptyCartTest {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments ("--incognito");
         chromeOptions.addArguments ("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver(chromeOptions);
         driver.get("https://www.sharelane.com/cgi-bin/main.py");
         driver.findElement(By.xpath("//a[@href='./shopping_cart.py']")).click();
         String errorMessage = driver.findElement(By.xpath("//span[@class = 'error_message']")).getText();
         Assert.assertEquals(errorMessage, "Oops, error. You must log in");
     }
-
     @AfterClass
     public void closeBrowser()
     {
         driver.quit();
     }
+
 }

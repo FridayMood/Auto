@@ -8,13 +8,13 @@ import org.testng.annotations.Test;
 
 public class AccountCreation {
     private WebDriver driver;
+
     @Test
-    public void accountCreationTest()
-    {
+    public void accountCreationTest() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments ("--incognito");
-        chromeOptions.addArguments ("--remote-allow-origins=*");
+        chromeOptions.addArguments("--incognito");
+        chromeOptions.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://www.sharelane.com/cgi-bin/register.py");
         driver.findElement(By.xpath("//input[@name = 'zip_code']")).sendKeys("12345");
@@ -29,9 +29,8 @@ public class AccountCreation {
         Assert.assertEquals(confirmationMessage, "Account is created!");
     }
 
-    @AfterClass
-    public void closeBrowser()
-    {
-        driver.quit();
+   @AfterClass
+   public void closeBrowser() {
+     driver.quit();
     }
 }
